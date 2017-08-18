@@ -1,14 +1,13 @@
 package com.framgia.fbook.data.source.remote.api.middleware
 
-import java.io.IOException
-import java.net.HttpURLConnection
-
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
+import java.io.IOException
+import java.net.HttpURLConnection
 
 /**
- * Created by Sun on 3/18/2017.
+ * Created by ThS on 8/17/2017.
  */
 
 class InterceptorImpl : Interceptor {

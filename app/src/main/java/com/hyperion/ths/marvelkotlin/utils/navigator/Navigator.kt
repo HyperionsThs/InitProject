@@ -5,7 +5,6 @@ import android.app.Fragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.support.v4.app.FragmentTransaction
 import android.text.TextUtils
 import android.util.Patterns
@@ -14,14 +13,18 @@ import com.hyperion.ths.marvelkotlin.R
 /**
  * Created by ThS on 8/17/2017.
  */
-class Navigator(private var activity: Activity, private var fragment: Fragment) {
+class Navigator {
 
   private var mActivity: Activity
   private var mFragment: Fragment? = null
 
-  init {
+  constructor(activity: Activity) {
     mActivity = activity
-    mFragment = if (fragment != null) fragment else null
+  }
+
+  constructor(fragment: Fragment) {
+    mFragment = fragment
+    mActivity = fragment.activity
   }
 
   private fun startActivity(intent: Intent) {
@@ -83,7 +86,7 @@ class Navigator(private var activity: Activity, private var fragment: Fragment) 
 
    * @param fragment new child fragment
    */
-//  fun goNextChildFragment(@IdRes containerViewId: Int, fragment: android.support.v4.app.Fragment,
+  //  fun goNextChildFragment(@IdRes containerViewId: Int, fragment: android.support.v4.app.Fragment,
 //      addToBackStack: Boolean, animation: Int, tag: String) {
 //    val transaction = mFragment?.childFragmentManager?.beginTransaction()
 //    setFragmentTransactionAnimation(transaction, animation)
@@ -100,7 +103,7 @@ class Navigator(private var activity: Activity, private var fragment: Fragment) 
 
    * @return true if fragment stack has pop
    */
-//  fun goBackChildFragment(): Boolean {
+  //  fun goBackChildFragment(): Boolean {
 //    val isShowPrevious = mFragment?.childFragmentManager?.backStackEntryCount!! > 1
 //    if (isShowPrevious) {
 //      mFragment?.childFragmentManager?.popBackStackImmediate()

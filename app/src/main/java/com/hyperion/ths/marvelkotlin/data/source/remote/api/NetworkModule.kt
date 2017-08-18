@@ -1,4 +1,4 @@
-package com.hyperion.ths.marvelkotlin.data.remote.api
+package com.hyperion.ths.marvelkotlin.data.source.remote.api
 
 import android.app.Application
 import com.framgia.fbook.data.source.remote.api.middleware.InterceptorImpl
@@ -10,7 +10,6 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.hyperion.ths.marvelkotlin.BuildConfig
-import com.hyperion.ths.marvelkotlin.utils.Constant
 import com.hyperion.ths.marvelkotlin.utils.dagger.AppScope
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
@@ -87,7 +86,7 @@ class NetworkModule(private val mApplication: Application) {
   @Provides
   fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(Constant.END_POINT_URL)
+        .baseUrl("Url")
         .addCallAdapterFactory(RxErrorHandlingCallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)

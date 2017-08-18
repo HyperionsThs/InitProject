@@ -7,7 +7,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 /**
- * Created by le.quang.dao on 10/03/2017.
+ * Created by ThS on 8/17/2017.
  */
 
 class BaseException : RuntimeException {

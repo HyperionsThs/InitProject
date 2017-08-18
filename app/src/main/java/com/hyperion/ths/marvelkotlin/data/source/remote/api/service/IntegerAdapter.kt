@@ -7,7 +7,7 @@ import com.google.gson.stream.JsonWriter
 import java.io.IOException
 
 /**
- * Created by le.quang.dao on 10/03/2017.
+ * Created by ThS on 8/17/2017.
  */
 
 class IntegerAdapter : TypeAdapter<Int>() {

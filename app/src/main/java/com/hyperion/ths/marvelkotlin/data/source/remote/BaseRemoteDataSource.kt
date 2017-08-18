@@ -1,4 +1,4 @@
-package com.hyperion.ths.marvelkotlin.data.remote
+package com.hyperion.ths.marvelkotlin.data.source.remote
 
 import com.framgia.fbook.data.source.remote.api.service.NameApi
 

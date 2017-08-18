@@ -5,12 +5,12 @@ import android.util.Log
 import com.framgia.fbook.data.source.remote.api.error.BaseException
 import com.framgia.fbook.data.source.remote.api.response.ErrorResponse
 import com.google.gson.Gson
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import io.reactivex.*
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.HttpException
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.io.IOException
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
@@ -26,7 +26,8 @@ class RxErrorHandlingCallAdapterFactory private constructor() : CallAdapter.Fact
 
   override fun get(returnType: Type, annotations: Array<Annotation>,
       retrofit: Retrofit): CallAdapter<*, *> {
-    return RxCallAdapterWrapper(returnType, original.get(returnType, annotations, retrofit) as CallAdapter<Any, Any>)
+    return RxCallAdapterWrapper(returnType,
+        original.get(returnType, annotations, retrofit) as CallAdapter<Any, Any>)
   }
 
   /**
